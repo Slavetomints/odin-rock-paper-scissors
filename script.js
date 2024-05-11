@@ -25,23 +25,11 @@ function playGame() {
         
         if (humanChoice === computerChoice) {
             console.log(`You tie! ${humanChoice} ties with ${computerChoice}`);
-        } else if (humanChoice === 'rock' && computerChoice === 'paper') {
-            console.log('You lose! paper beats rock!');
+        } else if ((humanChoice === 'rock' && computerChoice === 'paper') || (humanChoice === 'scissors' && computerChoice === 'rock') || (humanChoice === 'paper' && computerChoice === 'scissors')) {
+            console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
             ++computerScore;
-        } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
-            console.log('You lose! rock beats scissors!');
-            ++computerScore;
-        } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
-            console.log('You lose! scissors beats paper!');
-            ++computerScore;
-        } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-            console.log('You win! rock beats scissors!');
-            ++humanScore;
-        }  else if (humanChoice === 'paper' && computerChoice === 'rock') {
-            console.log('You win! paper beats rock!');
-            ++humanScore;
-        } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-            console.log('You win! scissors beats paper!');
+        } else if ((humanChoice === 'rock' && computerChoice === 'scissors') || (humanChoice === 'paper' && computerChoice === 'rock') || (humanChoice === 'scissors' && computerChoice === 'paper')) {
+            console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
             ++humanScore;
         }
     }
