@@ -1,7 +1,9 @@
-let computerScore = 0;
+let humanVisualScore = document.querySelector("#human-score");
 let humanScore = 0;
-let buttons = document.querySelector('#buttons');
-let winner = document.querySelector('#winner');
+let computerVisualScore = document.querySelector('#computer-score');
+let computerScore = 0;
+const buttons = document.querySelector('#buttons');
+const winner = document.querySelector('#winner');
 
 function getComputerChoice() {
     let randInt = Math.floor(Math.random() * 3);
@@ -27,12 +29,20 @@ function playRound() {
                (humanChoice === 'scissors' && computerChoice === 'rock') || 
                (humanChoice === 'paper' && computerChoice === 'scissors')) {
         results.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
+        
         ++computerScore;
+        humanVisualScore.textContent = humanScore;
+        computerVisualScore.textContent = computerScore;
+    
     } else if ((humanChoice === 'rock' && computerChoice === 'scissors') || 
                (humanChoice === 'paper' && computerChoice === 'rock') || 
                (humanChoice === 'scissors' && computerChoice === 'paper')) {
         results.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+        
         ++humanScore;
+        humanVisualScore.textContent = humanScore;
+        computerVisualScore.textContent = computerScore;    
+
     }
     if (humanScore >= 5 && computerScore < 5) {
         winner.textContent = 'You win! :D';
